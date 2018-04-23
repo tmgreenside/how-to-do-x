@@ -55,7 +55,42 @@ Here's the fun part: time to just mess around, read around and have fun with it!
 
 ## Desktop apps
 
-## Video Games and Computer Graphics
+## Video Games 
+
+Building video game can be an incredibly fun way to get better at programming and it can also be a great artistic expression.
+
+For the purposes of this section, we'll split up this section into two pieces based on intent. Both paths are respectable goals.
+
+### I want to be a better programmer
+
+If you're building games out of a desire to be a better programmer, this path is for you. 
+
+You should build games without a graphical game engine. You're welcome to go down the OpenGL graphics route if you feel comfortable with C++, but this path will focus mainly on non-graphical games libraries.
+
+Note that you will likely make worse games with this path.
+
+#### Pick an Engine
+
+There's typically game engines for every programming language, but here's some good ones for individual languages:
+
+* Python: Pygame
+* Java: LibGDX
+* Ruby: Ruby2d
+* Javascript: Phaserjs
+
+#### A First Project
+
+Start small. Your first project should be moving a block on the screen. Get a window opening. Get a block on the screen. See if you can get the block to move when you press arrow keys. 
+
+### I want to make really good games
+
+If you're building games mostly because you want to make games and the programming is more of a means to an ends, this path is for you. 
+
+### Unity
+//TODO
+
+#### A First Project
+//TODO
 
 ## Frontend Web
 
@@ -80,7 +115,7 @@ A good first project is to build a calculator that can compute things like this:
 ```
 1 + 2 * 5
 ```
-
+https://news.ycombinator.com/
 #### Step 1: Write a grammar
 
 You should probably write this in [EBNF form](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form). It doesn't need to have the exact same syntax, but it's useful to understand the conventions.
