@@ -22,8 +22,7 @@ LISTEN!
 Everyone starts at the bottom of the totem pole; but we've all got to get started at some point!  
 Great resources to read/listen from:  
 
--
-[Security Now](https://twit.tv/shows/security-now), is the best security podcast that discusses anything from updates in https, TLS and other things to recent hacks that have happened in the industry. Steve Gibson hosts this, with Leo creates more dialog. For a security podcast, it's quite entertaining!  
+- [Security Now](https://twit.tv/shows/security-now), is the best security podcast that discusses anything from updates in https, TLS and other things to recent hacks that have happened in the industry. Steve Gibson hosts this, with Leo creates more dialog. For a security podcast, it's quite entertaining!  
 - [Krebs On Security](https://krebsonsecurity.com/), is one of the best blogs that a person can stay up-to-date with. He's the first to know about security breaches and other things in the industry. He usually has great posts about every 3 days on something new.  
 - [List of Blogs](https://heimdalsecurity.com/blog/best-internet-security-blogs/) This is a list of computer security blogs that all serve a valuable purpose. However,there are thousands of other blogs and people willing to talk about things! So, find what fits you.
 
@@ -34,24 +33,25 @@ The first step to do some hacking or security based project is understanding the
 
 #### Step 1
 Setting up a database is very, very important in order to use a database! So, this is step 1. It's recommended that this is done on a unix-y system, like Linux or MAC.  
-[Setup MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-14-04)  
-This links does a great job at getting the database set up locally.
+[Setup MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-14-04)
+:does a great job at getting the database set up locally.
 
 #### Step 2
 For the sake of the project, let's use a login screen for this. So, a basic 'table' can be used for this, representing the application. In the table, we will only have two columns:
 username and password. This implementation is in Python.
 The table will simply look like:
 
-| __username__ | __password__ |
-|   theGUman   |  123456789   |
-|    Spike     |     Woof     |
+| __username__ | __password__ |  
+|   theGUman   |  123456789   |  
+|    Spike     |     Woof     |  
 
 -------  MAX, add it to your github.
 
 #### Step 3
 Here's the fun part: time to just mess around, read around and have fun with it! So, now that the authentication process works, now what? Well, the schema above has some major issues with it...
-- Passwords: Seem funky that the databases are stored by itself in plain text? Well, you were right! What happens in practice is what are called 'one-way hash functions' are used to encrypt the information. A one-way hash function is a way to jumble up data so that it's impossible to go back to the original value. This is used because it can be used to **validate** whether a password is correct, without the database actually storing the password.
-- Privileges: Within databases, as in everything are different types of users, which can do different actions. This can limit  
+- *Passwords*: Seem funky that the databases are stored by itself in plain text? Well, you were right! What happens in practice is what are called 'one-way hash functions' are used to encrypt the information. A one-way hash function is a way to jumble up data so that it's impossible to go back to the original value. This is used because it can be used to **validate** whether a password is correct, without the database actually storing the password.
+- *Privileges*: Within databases, as in everything are different types of users, which can do different actions. By having different users with different privileges(ideally as low as possible) it can help with reducing the amount of damage caused by a hacker.
+
 
 ## Desktop apps
 
