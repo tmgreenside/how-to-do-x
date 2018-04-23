@@ -94,7 +94,6 @@ def login(username,password):
     else:
         print "Failed!"
 ```
--------  MAX, add it to your github.
 
 #### Step 3
 Here's the fun part: time to just mess around, read around and have fun with it! So, now that the authentication process works, now what? Well, the schema above has some major issues with it...
