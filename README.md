@@ -41,16 +41,89 @@ For the sake of the project, let's use a login screen for this. So, a basic 'tab
 username and password. This implementation is in Python.
 The table will simply look like:
 
-| __username__ | __password__ |  
-|   theGUman   |  123456789   |  
-|    Spike     |     Woof     |  
+| username | password   |
+|----------|------------|
+| theGUMan | 1233456789 |
+| Spike    | Woof       |  
 
+SQL for this table:
+```
+CREATE TABLE Login(
+    username VARCHAR(50),
+    password VARCHAR(200),
+    PRIMARY KEY(username)
+);
+```
+
+SQL Query for getting results:
+```
+SELECT username, password
+FROM Login
+WHERE username = 'variable_1' AND
+password = 'variable_2';
+```
+The user needs to give variable_1 and variable_2 to check to see if the authentication works.  
+
+Below is a Python script with how to create a basic login script for the user:
+
+```
+def login(username,password):
+    #connections
+    db = MySQLdb.connect(host="localhost",    # your host, usually localhost
+                         user="root",         # your username
+                         passwd="passwd",  # your password
+                         db="user_fun") #database name
+
+    cur = db.cursor() #crates the connection.
+    query = """ #the actual query.
+    SELECT *
+    FROM Login
+    WHERE user = "%s"
+    AND password = "%s" ;
+    """ % (username,password)
+
+    cur.execute(query) # execute the query
+
+    #Logging information.
+    my_string = ""
+    for row in cur.fetchall():
+        my_string += row[0] + " " + row[1] + "\n"
+
+    if(my_string != ""):
+        print "Logged in"
+    else:
+        print "Failed!"
+```
 -------  MAX, add it to your github.
 
 #### Step 3
 Here's the fun part: time to just mess around, read around and have fun with it! So, now that the authentication process works, now what? Well, the schema above has some major issues with it...
-- *Passwords*: Seem funky that the databases are stored by itself in plain text? Well, you were right! What happens in practice is what are called 'one-way hash functions' are used to encrypt the information. A one-way hash function is a way to jumble up data so that it's impossible to go back to the original value. This is used because it can be used to **validate** whether a password is correct, without the database actually storing the password.
-- *Privileges*: Within databases, as in everything are different types of users, which can do different actions. By having different users with different privileges(ideally as low as possible) it can help with reducing the amount of damage caused by a hacker.
+- **Passwords**:  
+Seem funky that the databases are stored by itself in plain text? Well, you were right! What happens in practice is what are called 'one-way hash functions' are used to encrypt the information. A one-way hash function is a way to jumble up data so that it's impossible to go back to the original value. This is used because it can be used to **validate** whether a password is correct, without the database actually storing the password.
+- **Privileges**:  
+Within databases, as in everything are different types of users, which can do different actions. By having different users with different privileges(ideally as low as possible) it can help with reducing the amount of damage caused by a hacker.
+- **SQL Injections**:  
+An SQL injection is a way to insert arbitrary code into the system, just with the user input. With this, it's possible to get not only the information initially asked for, but everything from the database! There are thousands of ways to get information out of a database like this! A basic SQL injection for the query `SELECT * FROM Login WHERE username = '%s' AND password = '%s'` where %s is the string being inserted into the query is putting `dummy' OR '1' OR '1`. This will then give the database `SELECT * FROM Login WHERE username = 'dumb' AND password = 'dummy' OR '1' OR '1'`, which will log the user in. Further, we can just use a comment, which is '--' in SQL, to escape the code. This goes on, and on and on! The way to fix this is to use **prepared statements** in the query instead of just plain text. Or, to do an input validation, such as removing all quotations or something like that.
+
+### Step 4
+Keep pushing the boundaries of how this authentication process works! Create a [timing based](https://github.com/mdulin2/Timing-Based-SQL-Injection) SQL injection or salt the passwords! The better you understand it, the better you're going to understand how another website might be set up. You'll also understand more about how to make your software more secure!
+
+### What else?
+This list is literally endless! There are websites dedicated to helping people learn how certain applications are vulnerable. There are an endless amount of podcasts and blogs that you could listen to, conferences to go to...  
+- [Google Grueye](https://google-gruyere.appspot.com/)  
+An awfully made web application that is meant to teach people about cross site scripting(XSS) and other issues.
+- [Hack this site!](https://hackthissite.org)  
+A website with a ton of tutorials and challenges ranging from impossible to beginner.  
+
+### Projects
+Personal Projects that can be done:
+- [Set up a botnet](https://www.cybrary.it/0p3n/python-programming-hackers-part-6-creating-ssh-botnet/)  
+A botnet is a command to control server, that allows you to run commands on someone elses machine.
+- [Buillding Your Own website](https://hackernoon.com/build-your-own-react-48edb8ed350d)  
+Setting up your own website will open up so many opportunities to build your security skills.
+
+- [Blockchain](https://hackernoon.com/heres-how-i-built-a-private-blockchain-network-and-you-can-too-62ca7db556c0)  
+The hip thing right now! It's quite secure; so, understanding how this works would be a blessing!
 
 
 ## Desktop apps
