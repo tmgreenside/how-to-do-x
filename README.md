@@ -73,7 +73,7 @@ Building languages is not as hard as it may appear! In general, the key concepts
 * Lexing, or the conversion of text into abstract "tokens" that can be used in the grammar. For example, most languages convert the `+` into a `PLUS` token.
 * [Parsing](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Parsing), or the conversion of "tokens" (pieces of a language) into an [Abstract Syntax Tree](http://azu.github.io/slide/JSojisan/resources/ast-is-true.png).
 
-### First Steps
+### First Project
 
 A good first project is to build a calculator that can compute things like this:
 
@@ -213,6 +213,43 @@ function visitNum(node) {
   return node.value;
 }
 ```
+
+### Where to go from here
+
+The world of programming languages is really, really big.
+
+#### Compiler Compilers!
+
+If you went through and built that recursive descent parser and found it to be a little tedious, you're in luck! There's options for auto-generating a recursive descent parser from a grammar.
+
+* [Antlr](http://www.antlr.org/) is my personal favorite!
+* [Yacc, Lex, and Bison](http://dinosaur.compilertools.net/)
+
+#### Formal grammars
+
+Many bugs you've faced can come down to ambiguities in your grammar. Having a better understanding of the different types of grammars and parsers and how they're defined can really help you.
+
+* [LL(n)](https://en.wikipedia.org/wiki/LL_parser)
+* [LALR](https://en.wikipedia.org/wiki/LALR_parser)
+* [PEG](https://en.wikipedia.org/wiki/Parsing_expression_grammar)
+
+### Example projects
+
+#### A Portfolio Language
+
+Build a language like markdown that creates portfolio websites for you!
+
+#### Code Generators
+
+Create an AST generator for an existing language and use that to generate code for the language.
+
+#### AST Formatter
+
+Create a formatter that takes an existing programming language, converts it to an AST, then reprints it the correct style.
+
+#### Build a simple scripting language
+
+Build another language in your favorite language! Add variables, functions, arrays, and more!
 
 ## Learning specific programming languages
 
