@@ -216,7 +216,15 @@ TODO
 
 
 ## Backend Web
-//TODO
+
+###Steps
+* Learn HTML
+* Learn either JavaScript, Python, Java, or Go
+* Learn to deploy (Nginx, Apache)
+
+Building the backend of a website is fairly simple.  To start, you want to know how to write the pages our server will be delivering (HTML).  Next, you will need to create a simple server.  You have several options here.  Node.JS is a web framework written in JavaScript, is easy to set up, and is an excellent choice for your first web project.  Python offers two web servers: Flask and Django.  Flask is fairly similar to Node.  Another popular choice is Ruby on Rails.  This is less flexible then Node.JS, but it is simple, easy to use, and has a great support network.
+
+To build websites, it helps to know how to use a database (MySQL, MongoDB, etc).  Without this, you will be fairly limited in terms of what your website is capable of.
 
 ## Infastructure and AWS
 //TODO
